@@ -1,6 +1,6 @@
 version: '3'
 services:
-  demo-app: # これがdocker-composeの名前
+  git-app: # これがdocker-composeの名前
     build: .
     volumes:
       - .dockervenv:/src/.venv
