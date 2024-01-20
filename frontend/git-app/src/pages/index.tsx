@@ -1,7 +1,10 @@
-// pages/index.tsx
+import React from 'react';
+import { Repositories } from './repositories';
 
-import Page from './page.client';
+const App: React.FC = () => {
+  return (
+    <Repositories />
+  );
+};
 
-export default function Home() {
-  return <Page />;
-}
+export default App;
