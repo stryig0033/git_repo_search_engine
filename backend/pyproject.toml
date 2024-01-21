@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backend"
+name = "git-app"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
@@ -8,19 +8,17 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.109.0"
-uvicorn = "^0.26.0"
+uvicorn = {extras = ["standard"], version = "^0.26.0"}
+requests = "^2.31.0"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.11.0"
-isort = "^5.12.0"
-flake8 = "^6.1.0"
-mypy = "^1.7.0"
+types-requests = "^2.31.0.20240106"
+black = "^23.12.1"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+mypy = "^1.8.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-
-[tool.mypy]
-exclude = ['venv', '.venv']

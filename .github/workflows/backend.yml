@@ -33,6 +33,10 @@ jobs:
       - name: Install project
         run: poetry install
       - name: Format
-        run: make fmt
+        run: |
+         poetry run black ./
+         poetry run isort ./
       - name: Lint
-        run: make lint
+        run: |
+         poetry run flake8 ./ --exclude=./.venv
+         poetry run mypy ./
