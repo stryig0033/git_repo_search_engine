@@ -8,11 +8,12 @@ export interface GitHubRepo {
     description: string;
 }
 
-export async function searchGithubRepos(keyword: string, username: string): Promise<GitHubRepo[]> {
+export async function searchGithubRepos(
+    keyword: string, username: string, page: number = 1, per_page: number = 50
+    ): Promise<GitHubRepo[]> {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/search-repos/?keyword=${keyword}&username=${username}`);
-        // fetch() は、ネットワークリクエストを行うためのAPI。
-        // URLをhttp://localhost:8000にすると、uvicornが起動しているサーバとは別のサーバと認識する。
+        const url = `http://127.0.0.1:8000/search-repos/?keyword=${keyword}&username=${username}&page=${page}&per_page=${per_page}`;
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }

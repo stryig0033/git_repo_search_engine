@@ -23,7 +23,7 @@ def read_root():
 # GitHub APIへのリクエストを行うエンドポイントの設定
 @app.get("/search-repos/")
 async def search_repos(keyword: str, username: str):
-    url = f"https://api.github.com/search/repositories?q={keyword}+user:{username}"# noqa: E501
+    url = f"https://api.github.com/search/repositories?q={keyword}+user:{username}"# noqa: E501 #isortのエラーを無視する
     try:
         response = requests.get(url)
         response.raise_for_status()

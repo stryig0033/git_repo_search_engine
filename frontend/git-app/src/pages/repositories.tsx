@@ -1,8 +1,8 @@
 // ページのレイアウトとロジックを記述する
 
-import React, { useState } from 'react';
-import { searchGithubRepos, GitHubRepo } from './githubAPI';
-import { TailSpin } from 'react-loader-spinner';
+import React, { useState } from 'react'; // Reactのインポート
+import { searchGithubRepos, GitHubRepo } from './githubAPI'; // githubAPI.tsxから関数をインポート
+import { TailSpin } from 'react-loader-spinner'; // ローディングインジケータのインポート
 
 
 export const Repositories: React.FC = () => {
