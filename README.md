@@ -1,20 +1,20 @@
 ## 起動方法
 
 ### バックエンド
-```shell
-cd backend
+shellにて
 ```
-```shell
+cd backend
 uvicorn api.main:app --reload
 ```
+
 ### フロントエンド
-```shell
-cd frontend/git-app
+shellにて
 ```
-```shell
+cd frontend/git-app
 yarn dev
 ```
-http://localhost:3000に接続
+
+`http://localhost:3000`に接続
 
 
 
