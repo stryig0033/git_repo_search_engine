@@ -12,7 +12,9 @@ export interface GitHubRepo {
 
 export async function searchGithubRepos(keyword: string, username: string): Promise<GitHubRepo[]> {
     try {
-        const response = await axios.get(`http://localhost:8000/search_repos/?keyword=${keyword}&username=${username}`);
+        const response = await axios.get(`http://localhost:8000/search-repos/?keyword=${keyword}&username=${username}`,{
+            withCredentials: true
+          });
         return response.data.items;
     } catch (error) {
         if (axios.isAxiosError(error) && error.response) {
