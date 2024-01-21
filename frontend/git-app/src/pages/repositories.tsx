@@ -10,6 +10,8 @@ export const Repositories: React.FC = () => {
   const [username, setUsername] = useState<string>('');
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const handleSearch = async () => {
     setIsLoading(true);
