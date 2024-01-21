@@ -10,8 +10,6 @@ export const Repositories: React.FC = () => {
   const [username, setUsername] = useState<string>('');
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -70,7 +68,7 @@ export const Repositories: React.FC = () => {
         <div className="flex justify-center items-center">
         <TailSpin color="#00BFFF" height={80} width={80} />
       </div>
-      ) : (
+      ) : repos.length > 0 ? (
         // 検索結果リスト
         <ul className="list-none space-y-4">
           {repos.map(repo => (
@@ -88,6 +86,9 @@ export const Repositories: React.FC = () => {
           </li>
         ))}
         </ul>
+      ) : (
+        // 検索結果が0件の場合のメッセージ
+        <div className="text-center text-xl text-gray-600">No results found</div>
       )}
     </div>
   );
