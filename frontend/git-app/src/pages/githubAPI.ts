@@ -1,8 +1,6 @@
 // GitHubリポジトリの型定義
 // interface は、TypeScriptにおいてオブジェクトの形状（つまり、どのようなプロパティやメソッドを持っているか）を定義するために使用される構文です。
 //　これはコマンドではなく、TypeScriptの型システムの一部で、オブジェクトの型を定義するために使います。
-import axios from 'axios';
-
 export interface GitHubRepo {
     id: number;
     html_url: string;
@@ -12,15 +10,16 @@ export interface GitHubRepo {
 
 export async function searchGithubRepos(keyword: string, username: string): Promise<GitHubRepo[]> {
     try {
-        const response = await axios.get(`http://localhost:8000/search-repos/?keyword=${keyword}&username=${username}`,{
-            withCredentials: true
-          });
-        return response.data.items;
+        const response = await fetch(`http://127.0.0.1:8000/search-repos/?keyword=${keyword}&username=${username}`);
+        // fetch() は、ネットワークリクエストを行うためのAPI。
+        // URLをhttp://localhost:8000にすると、uvicornが起動しているサーバとは別のサーバと認識する。
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+        const data = await response.json();
+        return data.items;
     } catch (error) {
-        if (axios.isAxiosError(error) && error.response) {
-            // サーバーからのレスポンスがある場合の処理
-            console.error('Error response:', error.response);
-        } 
-        throw error; // エラーを再スローし、呼び出し元に伝搬させる
+        console.error('Error:', error);
+        throw error;
     }
 }
