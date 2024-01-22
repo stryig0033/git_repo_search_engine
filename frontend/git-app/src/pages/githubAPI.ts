@@ -1,6 +1,3 @@
-// GitHubリポジトリの型定義
-// interface は、TypeScriptにおいてオブジェクトの形状（つまり、どのようなプロパティやメソッドを持っているか）を定義するために使用される構文です。
-//　これはコマンドではなく、TypeScriptの型システムの一部で、オブジェクトの型を定義するために使います。
 export interface GitHubRepo {
     id: number;
     html_url: string;
