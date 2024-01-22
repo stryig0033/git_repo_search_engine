@@ -1,3 +1,23 @@
+## 起動方法
+
+### バックエンド
+shellにて
+```
+cd backend
+uvicorn api.main:app --reload
+```
+
+### フロントエンド
+shellにて
+```
+cd frontend/git-app
+yarn dev
+```
+
+`http://localhost:3000`に接続
+
+
+
 # 燈株式会社 ソフトウェアエンジニアインターン課題
 
 **⚠️注意事項**
