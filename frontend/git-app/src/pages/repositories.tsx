@@ -26,8 +26,6 @@ export const Repositories: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="flex flex-col items-left">
-
-        {/*検索フォーム_タイトル*/}
         <h1 className="text-3xl font-bold mb-4">GitHub Repository Search</h1>
           
           {/*検索フォーム_全体*/}
