@@ -22,11 +22,12 @@ def read_root():
 
 # GitHub APIへのリクエストを行うエンドポイントの設定
 @app.get("/search-repos/")
-async def search_repos(keyword: str, username: str):
-    url = f"https://api.github.com/search/repositories?q={keyword}+user:{username}"# noqa: E501 #isortのエラーを無視する
+async def search_repos(keyword: str, username: str, page: int = 1, per_page: int = 50):
+    url = f"https://api.github.com/search/repositories?q={keyword}+user:{username}+in:name&sort=stars&page={page}&per_page={per_page}"# noqa: E501
     try:
         response = requests.get(url)
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
         raise HTTPException(status_code=400, detail=str(e))
+
