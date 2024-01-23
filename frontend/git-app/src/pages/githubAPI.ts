@@ -15,7 +15,7 @@ export async function searchGithubRepos(
     keyword: string, username: string, page: number = 1, per_page: number = 50
 ): Promise<GitHubRepoSearchResult> {
     try {
-        const url = `http://127.0.0.1:8000/search-repos/?keyword=${keyword}&username=${username}&page=${page}&per_page=${per_page}`;
+        const url = `http://localhost:8000/search-repos/?keyword=${keyword}&username=${username}&page=${page}&per_page=${per_page}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
